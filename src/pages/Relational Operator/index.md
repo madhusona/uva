@@ -1,21 +1,28 @@
 ---
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
+title: Relational Operator
+date: "2018-09-27T22:12:03.284Z"
 ---
+**Problem Number:** 11172
+**Link:** [https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=23&page=show_problem&problem=2113](---%20title:%20Relational%20Operator%20date:%20%222018-09-27T22:12:03.284Z%22%20---%20Problem%20Num:%2011172%20Link:%20https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=23&page=show_problem&problem=2113%20%20Solution)
 
-This is my first post on my new fake blog! How exciting!
+**Solution:**  
 
-I'm sure I'll write a lot more interesting things in the future.
+    #include <iostream>    
+    using namespace std;
+        
+    int main() 
+    {
+        int n, x,y;
+        cin >> n;
+	    while(n--)
+	    {
+	        cin >> x >> y;
+	        if(x<y) cout << "<";
+	        else if(x>y) cout << ">";
+	        else cout << "=";
+	        cout << endl;
+        }
+        return 0;
+    }
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](http://en.wikipedia.org/wiki/Salted_duck_egg).
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
-
-![Chinese Salty Egg](./salty_egg.jpg)
