@@ -20,8 +20,8 @@ date: "2018-09-27T22:12:13.284Z"
 	        cin >> px >> py;
 	        while (n--) 
 	        {
-		       cin >> x >> y;
-		       if (x == px || y == py)    
+		           cin >> x >> y;
+		           if (x == px || y == py)    
 				    cout << "divisa";
 			   else if (x < px && y > py)
 					cout << "NO";
