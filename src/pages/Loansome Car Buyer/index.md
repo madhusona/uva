@@ -1,21 +1,53 @@
 ---
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
+title: Loansome Car Buyer
+date: "2018-09-28T23:24:13.284Z"
 ---
+**Problem Number:**  [10114](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=13&problem=1055)
 
-This is my first post on my new fake blog! How exciting!
+**Solution:**     
 
-I'm sure I'll write a lot more interesting things in the future.
+    #include <iostream>
+    #include <map>
+    using namespace std;
+    int main() {
+	int loan_duration, no_rec,month;
+	double down_payment, loan,percentage; 
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](http://en.wikipedia.org/wiki/Salted_duck_egg).
-
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
-
-![Chinese Salty Egg](./salty_egg.jpg)
+	while (true) {
+		cin >> loan_duration >> down_payment >> loan >> no_rec;
+		if (loan_duration < 0)
+			break;
+			
+		map <int, double> month_percentage;
+		
+		while (no_rec--) {
+			cin >> month >> percentage;
+			month_percentage[month]=percentage;
+		}
+		
+		
+		int now = 0;
+		double month_payment = loan / loan_duration;
+		double car_worth = (loan + down_payment) * (1 - month_percentage[0]);
+		double current_loan = loan;
+		
+		double temp=month_percentage[0];
+		
+		while (car_worth < current_loan) {
+			now++;
+			current_loan -= month_payment;
+			if (month_percentage.find(now) == month_percentage.end())
+				car_worth = car_worth * (1-temp);
+			else
+			{
+				temp=month_percentage[now];
+				car_worth = car_worth * (1-temp);
+			}		
+		}		
+		cout << now << " month";
+		if (now != 1)
+			cout << "s";
+		cout << endl;		
+	}
+	return 0;
+	}
