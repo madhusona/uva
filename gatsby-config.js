@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
-    description: 'A starter blog demonstrating what Gatsby can do.',
+    title: 'UVa Online Judge Blog',
+    author: 'Madusudhanan Bairappan',
+    description: 'UVa Online Judge Blog',
     siteUrl: 'https://madhusona.github.io/uva/',
   },
   pathPrefix: '/uva',
