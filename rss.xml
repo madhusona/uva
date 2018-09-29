@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://madhusona.github.io/uva/</link><generator>RSS for Node</generator><lastBuildDate>Sat, 29 Sep 2018 06:27:32 GMT</lastBuildDate><item><title><![CDATA[Loansome Car Buyer]]></title><description><![CDATA[Problem Number:    10114 Solution:      ]]></description><link>https://madhusona.github.io/uva//Loansome Car Buyer/</link><guid isPermaLink="false">https://madhusona.github.io/uva//Loansome Car Buyer/</guid><pubDate>Fri, 28 Sep 2018 23:24:13 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;Problem Number:&lt;/strong&gt;  &lt;a href=&quot;https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;#x26;Itemid=8&amp;#x26;page=show_problem&amp;#x26;category=13&amp;#x26;problem=1055&quot;&gt;10114&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;     &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;map&amp;gt;
+using namespace std;
+int main() {
+int loan_duration, no_rec,month;
+double down_payment, loan,percentage; 
+
+while (true) {
+	cin &amp;gt;&amp;gt; loan_duration &amp;gt;&amp;gt; down_payment &amp;gt;&amp;gt; loan &amp;gt;&amp;gt; no_rec;
+	if (loan_duration &amp;lt; 0)
+		break;
+		
+	map &amp;lt;int, double&amp;gt; month_percentage;
+	
+	while (no_rec--) {
+		cin &amp;gt;&amp;gt; month &amp;gt;&amp;gt; percentage;
+		month_percentage[month]=percentage;
+	}
+	
+	
+	int now = 0;
+	double month_payment = loan / loan_duration;
+	double car_worth = (loan + down_payment) * (1 - month_percentage[0]);
+	double current_loan = loan;
+	
+	double temp=month_percentage[0];
+	
+	while (car_worth &amp;lt; current_loan) {
+		now++;
+		current_loan -= month_payment;
+		if (month_percentage.find(now) == month_percentage.end())
+			car_worth = car_worth * (1-temp);
+		else
+		{
+			temp=month_percentage[now];
+			car_worth = car_worth * (1-temp);
+		}		
+	}		
+	cout &amp;lt;&amp;lt; now &amp;lt;&amp;lt; &amp;quot; month&amp;quot;;
+	if (now != 1)
+		cout &amp;lt;&amp;lt; &amp;quot;s&amp;quot;;
+	cout &amp;lt;&amp;lt; endl;		
+}
+return 0;
+}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;</content:encoded></item><item><title><![CDATA[Cost Cutting]]></title><description><![CDATA[Problem Number:    11727 Solution:      ]]></description><link>https://madhusona.github.io/uva//Cost Cutting/</link><guid isPermaLink="false">https://madhusona.github.io/uva//Cost Cutting/</guid><pubDate>Thu, 27 Sep 2018 22:22:13 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;Problem Number:&lt;/strong&gt;  &lt;a href=&quot;https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;#x26;Itemid=8&amp;#x26;category=117&amp;#x26;page=show_problem&amp;#x26;problem=2827&quot;&gt;11727&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;     &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt; #include &amp;lt;iostream&amp;gt;
+ using namespace std;
+ int main() 
+ {
+int test,a,b,c,temp,i=1;	
+cin&amp;gt;&amp;gt;test;
+
+while(test&amp;gt;0)
+{
+	cin&amp;gt;&amp;gt;a&amp;gt;&amp;gt;b&amp;gt;&amp;gt;c;
+	
+	if(a&amp;gt;b &amp;amp;&amp;amp; a&amp;gt;c)
+	{
+		if(b&amp;gt;c)
+			cout&amp;lt;&amp;lt;&amp;quot;Case &amp;quot;&amp;lt;&amp;lt;i&amp;lt;&amp;lt;&amp;quot;: &amp;quot;&amp;lt;&amp;lt;b&amp;lt;&amp;lt;&amp;quot;\n&amp;quot;;
+		else
+			cout&amp;lt;&amp;lt;&amp;quot;Case &amp;quot;&amp;lt;&amp;lt;i&amp;lt;&amp;lt;&amp;quot;: &amp;quot;&amp;lt;&amp;lt;c&amp;lt;&amp;lt;&amp;quot;\n&amp;quot;;	
+		
+	}
+	else if(b&amp;gt;a &amp;amp;&amp;amp; b&amp;gt;c)
+	{
+		if(a&amp;gt;c)
+			cout&amp;lt;&amp;lt;&amp;quot;Case &amp;quot;&amp;lt;&amp;lt;i&amp;lt;&amp;lt;&amp;quot;: &amp;quot;&amp;lt;&amp;lt;a&amp;lt;&amp;lt;&amp;quot;\n&amp;quot;;
+		else
+			cout&amp;lt;&amp;lt;&amp;quot;Case &amp;quot;&amp;lt;&amp;lt;i&amp;lt;&amp;lt;&amp;quot;: &amp;quot;&amp;lt;&amp;lt;c&amp;lt;&amp;lt;&amp;quot;\n&amp;quot;;
+	}
+	else
+	{
+		if(a&amp;gt;b)
+			cout&amp;lt;&amp;lt;&amp;quot;Case &amp;quot;&amp;lt;&amp;lt;i&amp;lt;&amp;lt;&amp;quot;: &amp;quot;&amp;lt;&amp;lt;a&amp;lt;&amp;lt;&amp;quot;\n&amp;quot;;
+		else
+			cout&amp;lt;&amp;lt;&amp;quot;Case &amp;quot;&amp;lt;&amp;lt;i&amp;lt;&amp;lt;&amp;quot;: &amp;quot;&amp;lt;&amp;lt;b&amp;lt;&amp;lt;&amp;quot;\n&amp;quot;;
+	}
+	i++;
+	test--;
+}
+return 0;
+}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;</content:encoded></item><item><title><![CDATA[Division of Nlogonia]]></title><description><![CDATA[Problem Number:   11498   Solution:      ]]></description><link>https://madhusona.github.io/uva//Division of Nlogonia/</link><guid isPermaLink="false">https://madhusona.github.io/uva//Division of Nlogonia/</guid><pubDate>Thu, 27 Sep 2018 22:12:13 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;Problem Number:&lt;/strong&gt; &lt;a href=&quot;https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;#x26;Itemid=8&amp;#x26;category=26&amp;#x26;page=show_problem&amp;#x26;problem=2493&quot;&gt;11498&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;     &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt; #include &amp;lt;iostream&amp;gt;    
+using namespace std;    
+int main() 
+{
+    int n, px, py, x, y;
+    cin &amp;gt;&amp;gt; n;
+    while (n != 0) 
+    {
+        cin &amp;gt;&amp;gt; px &amp;gt;&amp;gt; py;
+        while (n--) 
+        {
+	           cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
+	           if (x == px || y == py)    
+			    cout &amp;lt;&amp;lt; &amp;quot;divisa&amp;quot;;
+		   else if (x &amp;lt; px &amp;amp;&amp;amp; y &amp;gt; py)
+				cout &amp;lt;&amp;lt; &amp;quot;NO&amp;quot;;
+		   else if (x &amp;gt; px &amp;amp;&amp;amp; y &amp;gt; py)
+			    cout &amp;lt;&amp;lt; &amp;quot;NE&amp;quot;;
+		   else if (x &amp;gt; px &amp;amp;&amp;amp; y &amp;lt; py)
+				cout &amp;lt;&amp;lt; &amp;quot;SE&amp;quot;;
+		   else if (x &amp;lt; px &amp;amp;&amp;amp; y &amp;lt; py)
+				cout &amp;lt;&amp;lt; &amp;quot;SO&amp;quot;;
+
+		   cout &amp;lt;&amp;lt; endl;
+	    }
+	    cin &amp;gt;&amp;gt; n;
+}
+return 0;
+}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;</content:encoded></item><item><title><![CDATA[Relational Operator]]></title><description><![CDATA[Problem Number:   11172 Solution:   ]]></description><link>https://madhusona.github.io/uva//Relational Operator/</link><guid isPermaLink="false">https://madhusona.github.io/uva//Relational Operator/</guid><pubDate>Thu, 27 Sep 2018 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;Problem Number:&lt;/strong&gt; &lt;a href=&quot;https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;#x26;Itemid=8&amp;#x26;category=23&amp;#x26;page=show_problem&amp;#x26;problem=2113&quot;&gt;11172&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt;  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot;&gt;
+      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;#include &amp;lt;iostream&amp;gt;    
+using namespace std;
+    
+int main() 
+{
+    int n, x,y;
+    cin &amp;gt;&amp;gt; n;
+    while(n--)
+    {
+        cin &amp;gt;&amp;gt; x &amp;gt;&amp;gt; y;
+        if(x&amp;lt;y) cout &amp;lt;&amp;lt; &amp;quot;&amp;lt;&amp;quot;;
+        else if(x&amp;gt;y) cout &amp;lt;&amp;lt; &amp;quot;&amp;gt;&amp;quot;;
+        else cout &amp;lt;&amp;lt; &amp;quot;=&amp;quot;;
+        cout &amp;lt;&amp;lt; endl;
+    }
+    return 0;
+}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;</content:encoded></item></channel></rss>
